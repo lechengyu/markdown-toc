@@ -19,6 +19,8 @@ Generate TOC (table of contents) of headlines from parsed [markdown](https://en.
 
 <!-- /TOC -->
 
+增加了一种hexo模式，以兼容hexo对标题导航的处理，但是该模式在vscode的markdown预览里不能导航，实用性大打折扣。
+
 ## 1. Features
 - Insert header number sections.
 - Auto active plugin on markdown

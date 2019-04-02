@@ -1,28 +1,28 @@
 {
-    "name": "markdown-toc",
-    "displayName": "Markdown TOC",
+    "name": "markdown-toc-compatible-with-hexo",
+    "displayName": "Markdown TOC Compatible with Hexo",
     "description": "Markdown TOC(Table Of Contents) Plugin for Visual Studio Code.",
-    "version": "1.6.0",
+    "version": "0.0.1",
     "icon": "img/markdown-toc.png",
     "license": "MIT",
     "author": {
-        "email": "alanwalk93@gmail.com",
-        "name": "Alan Walk",
-        "url": "https://blog.otorb.com"
+        "email": "yulecheng@gmail.com",
+        "name": "yulecheng",
+        "url": ""
     },
     "bugs": {
-        "url": "https://github.com/AlanWalk/Markdown-TOC/issues"
+        "url": "https://github.com/lechengyu/markdown-toc/issues"
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/AlanWalk/Markdown-TOC.git"
+        "url": "https://github.com/lechengyu/markdown-toc.git"
     },
     "keywords": [
         "markdown",
         "toc"
     ],
-    "homepage": "https://github.com/AlanWalk/Markdown-TOC",
-    "publisher": "AlanWalk",
+    "homepage": "https://github.com/lechengyu/markdown-toc",
+    "publisher": "Yulecheng",
     "engines": {
         "vscode": "^1.0.0"
     },
@@ -35,22 +35,23 @@
     "main": "./out/src/extension",
     "contributes": {
         "commands": [
-        {
-            "command": "extension.updateMarkdownToc",
-            "title": "Markdown TOC: Insert/Update"
-        },
-        {
-            "command": "extension.deleteMarkdownToc",
-            "title": "Markdown TOC: Delete"
-        },
-        {
-            "command": "extension.updateMarkdownSections",
-            "title": "Markdown Sections: Insert/Update"
-        },
-        {
-            "command": "extension.deleteMarkdownSections",
-            "title": "Markdown Sections: Delete"
-        }],
+            {
+                "command": "extension.updateMarkdownToc",
+                "title": "Markdown TOC: Insert/Update"
+            },
+            {
+                "command": "extension.deleteMarkdownToc",
+                "title": "Markdown TOC: Delete"
+            },
+            {
+                "command": "extension.updateMarkdownSections",
+                "title": "Markdown Sections: Insert/Update"
+            },
+            {
+                "command": "extension.deleteMarkdownSections",
+                "title": "Markdown Sections: Delete"
+            }
+        ],
         "menus": {
             "editor/context": [
                 {
@@ -71,7 +72,7 @@
                 }
             ]
         },
-        "keybindings":[
+        "keybindings": [
             {
                 "command": "extension.updateMarkdownToc",
                 "key": "ctrl+m t"
@@ -83,48 +84,49 @@
         ],
         "configuration": {
             "type": "object",
-            "title": "Markdown TOC configuration",
+            "title": "Markdown TOC configuration Compatible with Hexo",
             "properties": {
-                "markdown-toc.depthFrom": {
+                "markdown-toc-compatible-with-hexo.depthFrom": {
                     "type": "number",
                     "default": 1,
                     "description": "Depth control [1-6]."
                 },
-                "markdown-toc.depthTo": {
+                "markdown-toc-compatible-with-hexo.depthTo": {
                     "type": "number",
                     "default": 6,
                     "description": "Depth control [1-6]."
                 },
-                "markdown-toc.insertAnchor": {
+                "markdown-toc-compatible-with-hexo.insertAnchor": {
                     "type": "boolean",
                     "default": false,
                     "description": "Auto insert anchor for link."
                 },
-                "markdown-toc.withLinks": {
+                "markdown-toc-compatible-with-hexo.withLinks": {
                     "type": "boolean",
                     "default": true,
                     "description": "Auto insert link."
                 },
-                "markdown-toc.orderedList": {
+                "markdown-toc-compatible-with-hexo.orderedList": {
                     "type": "boolean",
                     "default": false,
                     "description": "Use ordered list (1. ..., 2. ...)."
                 },
-                "markdown-toc.updateOnSave": {
+                "markdown-toc-compatible-with-hexo.updateOnSave": {
                     "type": "boolean",
                     "default": true,
                     "description": "Auto update on save."
                 },
-                "markdown-toc.anchorMode": {
+                "markdown-toc-compatible-with-hexo.anchorMode": {
                     "type": "string",
                     "default": "github.com",
                     "description": "anchor mode.",
-					"enum": [
-						"github.com",
-						"bitbucket.org",
-						"ghost.org",
+                    "enum": [
+                        "github.com",
+                        "hexo",
+                        "bitbucket.org",
+                        "ghost.org",
                         "gitlab.com"
-					]
+                    ]
                 }
             }
         }
@@ -135,10 +137,10 @@
         "postinstall": "node ./node_modules/vscode/bin/install"
     },
     "dependencies": {
-        "anchor-markdown-header": "^0.5.7"
+        "anchor-markdown-header-compatible-with-hexo": "0.0.1"
     },
     "devDependencies": {
-        "anchor-markdown-header": "^0.5.7",
+        "anchor-markdown-header-compatible-with-hexo": "0.0.1",
         "typescript": "^1.8.5",
         "vscode": "^0.11.0"
     }

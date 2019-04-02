@@ -47,7 +47,8 @@ const ANCHOR_MODE_LIST          =
     "github.com",
     "bitbucket.org",
     "ghost.org",
-    "gitlab.com"
+    "gitlab.com",
+    "hexo"
 ]
 
 export function activate(context: ExtensionContext) {
@@ -85,6 +86,7 @@ class MarkdownTocTools {
 
     // Public function
     public updateMarkdownToc(isBySave : boolean = false) {
+
         let editor = window.activeTextEditor;
         let markdownTocTools = this;
 
@@ -123,6 +125,7 @@ class MarkdownTocTools {
 
 
     public updateMarkdownSections() {
+
         let tocRange = this.getTocRange();
         this.updateOptions(tocRange);
         let headerList = this.getHeaderList();
@@ -188,13 +191,13 @@ class MarkdownTocTools {
     }
 
     private loadConfigurations() {
-        this.options.DEPTH_FROM     = <number>  workspace.getConfiguration('markdown-toc').get('depthFrom');
-        this.options.DEPTH_TO       = <number>  workspace.getConfiguration('markdown-toc').get('depthTo');
-        this.options.INSERT_ANCHOR  = <boolean> workspace.getConfiguration('markdown-toc').get('insertAnchor');
-        this.options.WITH_LINKS     = <boolean> workspace.getConfiguration('markdown-toc').get('withLinks');
-        this.options.ORDERED_LIST   = <boolean> workspace.getConfiguration('markdown-toc').get('orderedList');
-        this.options.UPDATE_ON_SAVE = <boolean> workspace.getConfiguration('markdown-toc').get('updateOnSave');
-        this.options.ANCHOR_MODE    = <string>  workspace.getConfiguration('markdown-toc').get('anchorMode');
+        this.options.DEPTH_FROM     = <number>  workspace.getConfiguration('markdown-toc-compatible-with-hexo').get('depthFrom');
+        this.options.DEPTH_TO       = <number>  workspace.getConfiguration('markdown-toc-compatible-with-hexo').get('depthTo');
+        this.options.INSERT_ANCHOR  = <boolean> workspace.getConfiguration('markdown-toc-compatible-with-hexo').get('insertAnchor');
+        this.options.WITH_LINKS     = <boolean> workspace.getConfiguration('markdown-toc-compatible-with-hexo').get('withLinks');
+        this.options.ORDERED_LIST   = <boolean> workspace.getConfiguration('markdown-toc-compatible-with-hexo').get('orderedList');
+        this.options.UPDATE_ON_SAVE = <boolean> workspace.getConfiguration('markdown-toc-compatible-with-hexo').get('updateOnSave');
+        this.options.ANCHOR_MODE    = <string>  workspace.getConfiguration('markdown-toc-compatible-with-hexo').get('anchorMode');
     }
 
     private loadCustomOptions(tocRange : Range) {
@@ -393,7 +396,7 @@ class MarkdownTocTools {
     }
 
     private getHash(headername : string, mode : string, repetition : number) {
-        let anchor = require('anchor-markdown-header');
+        let anchor = require('anchor-markdown-header-compatible-with-hexo');
         return decodeURI(anchor(headername, mode, repetition));
     }
 
